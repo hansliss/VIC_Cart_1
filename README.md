@@ -9,8 +9,17 @@ With 8k blocks (using 13 address lines)
 NOTE: The RAM addressing is incorrect and needs to be fixed!
 
 blk	addresses	
-0	0400-0fff       01111  010
-1	2000-3fff	10111  110
-2	4000-5fff	11011  100
-3	6000-7fff	11101  110
-5	a000-bfff	11110  111
+0	0400-0fff       01111  01
+1	2000-3fff	10111  11
+2	4000-5fff	11011  00
+3	6000-7fff	11101  01
+5	a000-bfff	11110  11
+
+
+U4C: 3-input AND
+U5D: 2-input OR
+
+
+BLK0 OR BLK2 OR BLK3 = A13
+BLK2 = A14
+
