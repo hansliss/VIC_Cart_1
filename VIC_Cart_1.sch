@@ -34,6 +34,7 @@ LIBS:valves
 LIBS:Connectors
 LIBS:MyROMs
 LIBS:ROMs
+LIBS:VIC_Cart_1-cache
 EELAYER 25 0
 EELAYER END
 $Descr A4 11693 8268
@@ -166,9 +167,9 @@ D7
 Text GLabel 1900 1200 0    60   Input ~ 0
 D[0..7]
 Text GLabel 3300 1100 0    60   Input ~ 0
-A[0..13]
+A[0..12]
 Text GLabel 9050 1750 0    60   Input ~ 0
-A[0..13]
+A[0..12]
 Text GLabel 10550 1750 0    60   Input ~ 0
 D[0..6]
 Text Label 3100 1650 0    60   ~ 0
@@ -233,32 +234,24 @@ Entry Wire Line
 	3200 2750 3300 2650
 Entry Wire Line
 	3200 2850 3300 2750
-Entry Wire Line
-	3200 2950 3300 2850
 Text Label 3050 2650 0    60   ~ 0
 A10
 Text Label 3050 2750 0    60   ~ 0
 A11
 Text Label 3050 2850 0    60   ~ 0
 A12
-Text Label 3050 2950 0    60   ~ 0
-A13
 Entry Wire Line
 	9050 3400 9150 3300
 Entry Wire Line
 	9050 3500 9150 3400
 Entry Wire Line
 	9050 3600 9150 3500
-Entry Wire Line
-	9050 3700 9150 3600
 Text Label 9150 3300 0    60   ~ 0
 A10
 Text Label 9150 3400 0    60   ~ 0
 A11
 Text Label 9150 3500 0    60   ~ 0
 A12
-Text Label 9150 3600 0    60   ~ 0
-A13
 $Comp
 L ATMEGA328P-PU U1
 U 1 1 5B449695
@@ -593,8 +586,6 @@ Entry Wire Line
 	5200 2150 5300 2050
 Entry Wire Line
 	5200 2250 5300 2150
-Text GLabel 5100 900  0    60   Input ~ 0
-A[0..13]
 Text Label 4150 5750 0    60   ~ 0
 ~ROM_BLK3
 Text Label 4150 6100 0    60   ~ 0
@@ -784,7 +775,6 @@ F 3 "" H 9100 4100 50  0001 C CNN
 	1    9100 4100
 	1    0    0    -1  
 $EndComp
-NoConn ~ 2050 3150
 NoConn ~ 2050 3250
 NoConn ~ 2050 3350
 NoConn ~ 2050 3450
@@ -1094,9 +1084,9 @@ $EndComp
 Wire Bus Line
 	10550 1750 10550 2900
 Wire Bus Line
-	3300 1100 3300 2850
+	3300 1100 3300 2750
 Wire Bus Line
-	9050 1750 9050 3700
+	9050 1750 9050 3600
 Wire Wire Line
 	1900 1650 2050 1650
 Wire Wire Line
@@ -1180,15 +1170,11 @@ Wire Wire Line
 Wire Wire Line
 	3050 2850 3200 2850
 Wire Wire Line
-	3050 2950 3200 2950
-Wire Wire Line
 	9300 3300 9150 3300
 Wire Wire Line
 	9300 3400 9150 3400
 Wire Wire Line
 	9300 3500 9150 3500
-Wire Wire Line
-	9300 3600 9150 3600
 Wire Wire Line
 	7550 6050 7450 6050
 Wire Wire Line
@@ -1358,9 +1344,6 @@ Wire Wire Line
 	10850 3150 10850 4900
 Wire Wire Line
 	10850 3150 10300 3150
-Wire Wire Line
-	10300 3250 10850 3250
-Connection ~ 10850 3250
 Wire Wire Line
 	10300 3400 10850 3400
 Connection ~ 10850 3400
@@ -1700,4 +1683,25 @@ Connection ~ 7050 4350
 Wire Wire Line
 	6900 4700 6900 4900
 Connection ~ 6900 4900
+Wire Wire Line
+	10300 3250 10700 3250
+Wire Wire Line
+	10700 3250 10700 5850
+Wire Wire Line
+	10700 5850 7800 5850
+Wire Wire Line
+	7800 5850 7800 5700
+Wire Wire Line
+	7800 5700 5900 5700
+Wire Wire Line
+	5900 5700 5900 4400
+Wire Wire Line
+	5900 4400 1700 4400
+Wire Wire Line
+	1700 4400 1700 3150
+Wire Wire Line
+	1700 3150 2050 3150
+NoConn ~ 3050 2950
+Text GLabel 5100 900  0    60   Input ~ 0
+A[0..12]
 $EndSCHEMATC
