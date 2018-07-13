@@ -1,4 +1,4 @@
-update=2018-07-10 13:50:00
+update=2018-07-13 15:37:23
 version=1
 last_client=kicad
 [pcbnew]
@@ -61,6 +61,5 @@ LibName29=opto
 LibName30=atmel
 LibName31=contrib
 LibName32=valves
-LibName33=K:/Hans Liss/Documents/KiCad/Libraries/Connectors
-LibName34=K:/Hans Liss/Documents/KiCad/Libraries/MyROMs
-LibName35=ROMs
+LibName33=ROMs
+LibName34=Connectors
