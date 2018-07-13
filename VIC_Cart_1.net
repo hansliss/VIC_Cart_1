@@ -1,7 +1,7 @@
 (export (version D)
   (design
-    (source "K:\\Hans Liss\\Documents\\KiCad\\VIC_Cart_1\\VIC_Cart_1.sch")
-    (date "2018-07-13 10:44:28")
+    (source "K:/Hans Liss/Documents/KiCad/VIC_Cart_1/VIC_Cart_1.sch")
+    (date "2018-07-13 15:49:17")
     (tool "Eeschema 4.0.7")
     (sheet (number 1) (name /) (tstamps /)
       (title_block
@@ -17,14 +17,14 @@
   (components
     (comp (ref J1)
       (value VIC-20_Expansion_Port)
-      (footprint MyConnectors:VIC_EXP)
+      (footprint VIC_Connectors:VIC_EXP)
       (libsource (lib Connectors) (part VIC-20_Expansion_Port))
       (sheetpath (names /) (tstamps /))
       (tstamp 5B1D34FC))
     (comp (ref U2)
       (value KM681000CLG-5L)
-      (footprint MyConnectors:SOP-32_14.12x20.87mm_Pitch1.27mm)
-      (libsource (lib MyROMs) (part KM681000CLG-5L))
+      (footprint VIC_Connectors:SOP-32_14.12x20.87mm_Pitch1.27mm)
+      (libsource (lib VIC_Cart_1-cache) (part KM681000CLG-5L))
       (sheetpath (names /) (tstamps /))
       (tstamp 5B1D3C76))
     (comp (ref U1)
@@ -162,7 +162,7 @@
     (comp (ref U3)
       (value M27C160)
       (footprint Housings_DIP:DIP-42_W15.24mm_Socket)
-      (libsource (lib MyROMs) (part M27C160))
+      (libsource (lib ROMs) (part M27C160))
       (sheetpath (names /) (tstamps /))
       (tstamp 5B44D433))
     (comp (ref U4)
@@ -365,10 +365,9 @@
       (pins
         (pin (num 1) (name K) (type passive))
         (pin (num 2) (name A) (type passive))))
-    (libpart (lib MyROMs) (part KM681000CLG-5L)
+    (libpart (lib VIC_Cart_1-cache) (part KM681000CLG-5L)
       (aliases
         (alias HM628512BFP-5))
-      (description "SRAM 512K x 8-bit, 525mil SOP32, 70ns")
       (footprints
         (fp SO32*))
       (fields
@@ -408,7 +407,7 @@
         (pin (num 30) (name CS2) (type input))
         (pin (num 31) (name A15) (type input))
         (pin (num 32) (name VCC) (type power_in))))
-    (libpart (lib MyROMs) (part M27C160)
+    (libpart (lib ROMs) (part M27C160)
       (description "PA28F400BX-T/B Flash EEProm 4-MBIT (256Kx16bits, 512Kx8bits) 5V, 12V Prog")
       (docs http://download.intel.com/design/archives/flash/docs/29045101.pdf)
       (footprints
@@ -480,8 +479,6 @@
         (pin (num 1) (name 1) (type passive))
         (pin (num 2) (name 2) (type passive))))
     (libpart (lib Connectors) (part VIC-20_Expansion_Port)
-      (description "Generic connector, double row, 02x22, top/bottom pin numbering scheme (row 1: 1...pins_per_row, row2: pins_per_row+1 ... num_pins)")
-      (docs ~)
       (footprints
         (fp Connector*:*2x??x*mm*)
         (fp Connector*:*2x???Pitch*))
@@ -544,10 +541,12 @@
       (uri "K:\\Program Files\\KiCad\\share\\kicad\\library\\74xx.lib"))
     (library (logical atmel)
       (uri "K:\\Program Files\\KiCad\\share\\kicad\\library\\atmel.lib"))
+    (library (logical ROMs)
+      (uri "K:\\Hans Liss\\Documents\\KiCad\\VIC_Cart_1\\ROMs.lib"))
     (library (logical Connectors)
-      (uri "K:\\Hans Liss\\Documents\\KiCad\\Libraries\\Connectors.lib"))
-    (library (logical MyROMs)
-      (uri "K:\\Hans Liss\\Documents\\KiCad\\Libraries\\MyROMs.lib")))
+      (uri "K:\\Hans Liss\\Documents\\KiCad\\VIC_Cart_1\\Connectors.lib"))
+    (library (logical VIC_Cart_1-cache)
+      (uri "K:\\Hans Liss\\Documents\\KiCad\\VIC_Cart_1\\VIC_Cart_1-cache.lib")))
   (nets
     (net (code 1) (name A10)
       (node (ref U3) (pin 40))
