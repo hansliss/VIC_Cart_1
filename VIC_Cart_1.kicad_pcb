@@ -3,7 +3,7 @@
   (general
     (links 162)
     (no_connects 0)
-    (area 43.924999 32.139799 170.615001 109.604881)
+    (area 43.924999 32.139799 170.615001 140.982582)
     (thickness 1.6)
     (drawings 23)
     (tracks 1537)
@@ -1896,7 +1896,7 @@
     )
   )
 
-  (gr_text "PD0-PD5\n = select ROM block set\n    #0-63\nPC3,PD6,PD7 (active low)\nFill ROM with 64 sets of\n4x8k rom images\n = buttons\n" (at 73.5203 87.5665) (layer F.SilkS)
+  (gr_text "PD0-PD5\n = select ROM block set\n    #0-63\nPC3,PD6,PD7 (active low)\n = buttons\nFill ROM with 64 sets of\n4x8k rom images\n" (at 73.5203 87.5665) (layer F.SilkS)
     (effects (font (size 1.5 1.5) (thickness 0.3)) (justify left))
   )
   (gr_text "PB0-PB4 (active low)\n = select RAM blocks\n    RAM{123},BLK[1-5]\nPB5,PC0-PC2 (active low)\n = select ROM blocks\n    BLK[1-5]\n" (at 73.3425 60.452) (layer F.SilkS)
