@@ -1,0 +1,10 @@
+C1: https://www.elfa.se/en/capacitor-100-nf-25-vdc-0603-rnd-components-rnd-1500603y104z250nt/p/30086612
+C2, C3: https://www.elfa.se/en/capacitor-22-pf-50-vdc-0603-rnd-components-rnd-1500603n220f500nt/p/30086539
+C4: https://www.elfa.se/en/aluminium-electrolytic-capacitor-10-uf-16-20-hc-panasonic-industry-europe-eeehc1c100r/p/30108103
+C5-C11: https://www.elfa.se/en/capacitor-uf-16-0603-kemet-c0603x104k4ractu/p/30111165
+D1: https://www.elfa.se/en/small-signal-diode-do-213aa-diotec-bav103/p/30110670
+R1-R3: https://www.elfa.se/en/smd-resistor-metal-thin-film-10-kohm-panasonic-industry-europe-era3aeb103v/p/16015687
+U4: https://www.elfa.se/en/logic-ic-so-16-sn74hc148-texas-instruments-sn74hc148d/p/17379828
+U5, U6: https://www.elfa.se/en/logic-ic-so-14-nxp-74hc21d/p/17390727
+U7,U8,U9: https://www.elfa.se/en/logic-ic-so-14-sn74hc32-texas-instruments-sn74hc32dr/p/30023025
+Y1: https://www.elfa.se/en/quartz-hc49us-16-mhz-auris-16-00000m-hc49us-30-30-d32/p/17452832
