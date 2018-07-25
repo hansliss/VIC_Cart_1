@@ -29,7 +29,7 @@ int but1=17;
 int but2=6;
 int but3=7;
 
-unsigned long debounceDelay = 70;
+unsigned long debounceDelay = 100;
 
 int rammode=0;
 
@@ -83,7 +83,8 @@ struct rm_s {
   {"BLK2,3", 6},
   {"BLK5", 8},
   {"BLK1,5", 9},
-  {"BLK3", 4}
+  {"BLK3", 4},
+  {"BLK3,5", 12}
 };
 
 int numRomModes=(sizeof(romModes)/sizeof(struct rm_s));
@@ -121,23 +122,21 @@ int setRomBank(int bank) {
 }
 
 void displayModes() {
-  int mem=ramModes[currentRamMode][0];
-    static char ramBuf[32];
-    sprintf(ramBuf, "RAM: %dkB  ", mem);
-    char *txt=romModes[currentRomMode].text;
-    static char romBuf[32];
-    sprintf(romBuf, "ROM: %s   ", txt);
-    char bankBuf[32];
-    sprintf(bankBuf, "Bank: %d  ", currentRomBank);
+    static char buf[16];
+    int ramSize=ramModes[currentRamMode][0];
+    char *romConf=romModes[currentRomMode].text;
     display.clearDisplay();
     display.setTextSize(1);
     display.setTextColor(WHITE);
     display.setCursor(27,10);
-    display.print(ramBuf);
+    sprintf(buf, "RAM: %dkB", ramSize);
+    display.print(buf);
     display.setCursor(27,20);
-    display.print(romBuf);
+    sprintf(buf, "ROM: %s", romConf);
+    display.print(buf);
     display.setCursor(27,30);
-    display.print(bankBuf);
+    sprintf(buf, "Bank: %d", currentRomBank);
+    display.print(buf);
     display.display();
 }
 
@@ -177,61 +176,39 @@ void setup() {
   displayModes();
 }
 
+int buttonWithDeBounce(int button, int *curState, long *lastTime) {
+  int r=0;
+  int reading = digitalRead(button);
+  if ((millis() - *lastTime) > debounceDelay) {
+    if (reading != *curState) {
+      *curState=reading;
+      r = (*curState == LOW);
+      *lastTime = millis();
+    }
+  }
+  return r;
+}
+
 void loop() {
-  static int lastBut1State=HIGH;
-  static int lastBut2State=HIGH;
-  static int lastBut3State=HIGH;
   static int but1State=HIGH;
   static int but2State=HIGH;
   static int but3State=HIGH;
-  static int lastDebounceTimeBut1=0;
-  static int lastDebounceTimeBut2=0;
-  static int lastDebounceTimeBut3=0;
-  int reading = digitalRead(but1);
-  if (reading != lastBut1State) {
-    lastDebounceTimeBut1 = millis();
+  static long lastDebounceTimeBut1=0;
+  static long lastDebounceTimeBut2=0;
+  static long lastDebounceTimeBut3=0;
+  if (buttonWithDeBounce(but1, &but1State, &lastDebounceTimeBut1)) {
+    currentRamMode = (currentRamMode + 1) % numRamModes;
+    setRamMode(currentRamMode);
+    displayModes();
   }
-  if (millis() - lastDebounceTimeBut1 > debounceDelay) {
-    if (reading != but1State) {
-      but1State=reading;
-      if (but1State == LOW) {
-        currentRamMode = (currentRamMode + 1) % numRamModes;
-        setRamMode(currentRamMode);
-        displayModes();
-      }
-    }
+  if (buttonWithDeBounce(but2, &but2State, &lastDebounceTimeBut2)) {
+    currentRomMode = (currentRomMode + 1) % numRomModes;
+    setRomMode(currentRomMode);
+    displayModes();
   }
-  lastBut1State = reading;
-
-  reading = digitalRead(but2);
-  if (reading != lastBut2State) {
-    lastDebounceTimeBut2 = millis();
+  if (buttonWithDeBounce(but3, &but3State, &lastDebounceTimeBut3)) {
+    currentRomBank = (currentRomBank + 1) % numRomBanks;
+    setRomBank(currentRomBank);
+    displayModes();
   }
-  if (millis() - lastDebounceTimeBut2 > debounceDelay) {
-    if (reading != but2State) {
-      but2State=reading;
-      if (but2State == LOW) {
-        currentRomMode = (currentRomMode + 1) % numRomModes;
-        setRomMode(currentRomMode);
-        displayModes();
-      }
-    }
-  }
-  lastBut2State = reading;
-
-  reading = digitalRead(but3);
-  if (reading != lastBut3State) {
-    lastDebounceTimeBut3 = millis();
-  }
-  if (millis() - lastDebounceTimeBut3 > debounceDelay) {
-    if (reading != but3State) {
-      but3State=reading;
-      if (but3State == LOW) {
-        currentRomBank = (currentRomBank + 1) % numRomBanks;
-        setRomBank(currentRomBank);
-        displayModes();
-      }
-    }
-  }
-  lastBut3State = reading;
 }
