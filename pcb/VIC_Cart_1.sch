@@ -125,7 +125,6 @@ Entry Wire Line
 Entry Wire Line
 	13250 7050 13350 6950
 NoConn ~ 3500 4200
-NoConn ~ 3500 4100
 NoConn ~ 3500 4000
 NoConn ~ 3500 3900
 NoConn ~ 13800 7850
@@ -1202,6 +1201,7 @@ F 3 "" H 8650 10200 50  0001 C CNN
 	1    8650 10200
 	1    0    0    -1  
 $EndComp
+NoConn ~ 3500 4100
 Wire Bus Line
 	15050 5500 15050 6650
 Wire Bus Line
