@@ -1849,7 +1849,7 @@
   (gr_text "PB0-PB4 (active low)\n = select RAM blocks\n    RAM{123},BLK[1-5]\nPB5,PC0-PC2 (active low)\n = select ROM blocks\n    BLK[1-5]\n" (at 73.3425 60.452) (layer F.SilkS)
     (effects (font (size 1.5 1.5) (thickness 0.3)) (justify left))
   )
-  (gr_text "VIC-20 multi-cartridge - RAM + ROM\nby Hans Liss - Hans@Liss.pp.se" (at 112.01 39.59) (layer F.SilkS)
+  (gr_text "VIC-20 ROM + RAM cartridge\nby Hans Liss - Hans@Liss.pp.se" (at 112.01 39.59) (layer F.SilkS)
     (effects (font (size 1.5 1.5) (thickness 0.3)))
   )
   (gr_arc (start 151.4762 108.52988) (end 152.4762 108.52988) (angle 90) (layer Edge.Cuts) (width 0.15))
