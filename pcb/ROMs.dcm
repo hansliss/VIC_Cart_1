@@ -6,4 +6,9 @@ K EEPROM FLASH 4MO
 F http://download.intel.com/design/archives/flash/docs/29045101.pdf
 $ENDCMP
 #
+$CMP HM628512
+D 512kx8 SRAM
+K SRAM512
+$ENDCMP
+#
 #End Doc Library
